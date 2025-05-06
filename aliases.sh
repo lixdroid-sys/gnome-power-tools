@@ -19,12 +19,12 @@ alias gpuinfo='lspci | grep VGA'  # 🎮 View GPU details
 alias kernel='uname -r'  # 🏗️ Display kernel version
 
 # 🛠️ System Management
-alias editbash='nano ~/.bashrc'  # ✏️ Edit .bashrc
+alias editbash='${EDITOR:-nano} ~/.bashrc'  # ✏️ Edit .bashrc
 alias reloadbash='source ~/.bashrc'  # 🔄 Reload .bashrc
-alias editzsh='nano ~/.zshrc'  # ✏️ Edit .zshrc
+alias editzsh='${EDITOR:-nano} ~/.zshrc'  # ✏️ Edit .zshrc
 alias reloadzsh='source ~/.zshrc'  # 🔄 Reload .zshrc
 alias processes='ps aux --sort=-%mem | head -10'  # 🏋️ View top 10 processes by memory usage
-alias killprocess='kill -9'  # ☠️ Kill a process by PID (Usage: killprocess PID)
+alias killprocess='kill'  # ☠️ Kill a process by PID (Use -9 only if necessary)
 alias ports='netstat -tulnp'  # 🌐 List open network ports
 
 # 📂 File & Directory Management
@@ -43,3 +43,6 @@ alias speedtest='command -v speedtest-cli >/dev/null 2>&1 && speedtest-cli || ec
 
 # 📦 Install Essential Packages
 sudo apt install neofetch net-tools speedtest-cli
+
+chmod +x setup.sh
+./setup.sh

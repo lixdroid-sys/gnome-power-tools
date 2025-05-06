@@ -11,7 +11,7 @@ alias update='sudo apt update && sudo apt upgrade -y'  # ⬆️ Update & upgrade
 alias cleanup='sudo apt autoremove && sudo apt autoclean'  # 🧹 Clean up unused packages
 
 # 📊 System Information
-alias neo='neofetch'  # 🖼️ Display system info
+alias neo='command -v neofetch >/dev/null 2>&1 && neofetch || echo "neofetch is not installed"'  # 🖼️ Display system info
 alias diskusage='df -h'  # 💾 Check disk usage
 alias meminfo='free -h'  # 🧠 Check memory usage
 alias cpuinfo='lscpu'  # 🔍 View CPU details
@@ -30,7 +30,7 @@ alias ports='netstat -tulnp'  # 🌐 List open network ports
 # 📂 File & Directory Management
 alias ll='ls -lah'  # 📁 List files in long format, including hidden files
 alias mkdir='mkdir -p'  # 🏗️ Create directory and necessary parent directories
-alias rmdir='rm -r'  # ❌ Remove directory (use with caution)
+alias rmdir='rm -ri'  # ❌ Remove directory with confirmation
 alias cp='cp -iv'  # 📝 Copy with interactive and verbose mode
 alias mv='mv -iv'  # 🔄 Move with interactive and verbose mode
 alias rm='rm -iv'  # ❌ Remove with interactive and verbose mode
@@ -39,4 +39,7 @@ alias rm='rm -iv'  # ❌ Remove with interactive and verbose mode
 alias myip='curl ifconfig.me'  # 🌍 Get public IP address
 alias localip='hostname -I'  # 🏠 Get local IP address
 alias pingtest='ping -c 5 google.com'  # 🌐 Test internet connectivity
-alias speedtest='speedtest-cli'  # 🚀 Run an internet speed test
+alias speedtest='command -v speedtest-cli >/dev/null 2>&1 && speedtest-cli || echo "speedtest-cli is not installed"'  # 🚀 Run an internet speed test
+
+# 📦 Install Essential Packages
+sudo apt install neofetch net-tools speedtest-cli
